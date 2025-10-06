@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="preload" as="image" href="images/mysql-gas.png">
+  <link rel="preload" as="image" href="images/pol424.png">
+  <link rel="preload" as="image" href="images/thesis.png">
+  <link rel="preload" as="image" href="images/portrait.jpg">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Christian Farlin | MIS Portfolio</title>
+  <meta name="description" content="MIS graduate student and data analyst with Python, SQL/MySQL, AWS, and econometrics experience." />
+  <meta name="theme-color" content="#0C234B" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Christian Farlin | MIS Portfolio">
+  <meta property="og:description" content="MIS graduate student and data analyst: Python, SQL/MySQL, AWS, econometrics; projects in regression and network analysis.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <style>
+    :root{
+      --bg:#0b1020; --fg:#e6e8ee; --muted:#9aa3b2; --card:#121832; --line:#1f2746;
+      --primary:#0C234B; --accent:#AB0520; --maxw:1100px; --r:18px; --g:16px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --fg:#111827; --muted:#5b667a; --card:#f7f8fb; --line:#e4e7ef; }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:system-ui,-apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--fg); line-height:1.6}
+    a, a:visited{ color: var(--accent); text-decoration:none }
+    a:hover, a:focus{color:#ffffff; text-decoration:underline}
+    a:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+    img{max-width:100%; height:auto; border-radius:12px}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:20px}
+    .grid{display:grid; gap:var(--g)}
+    @media (min-width:720px){.cols-2{grid-template-columns:1.2fr .8fr}} 
+    @media (min-width:980px){.cols-3{grid-template-columns:repeat(3,1fr)} .cols-2h{grid-template-columns:1fr 1fr}}
+    nav{position:sticky; top:0; background:color-mix(in hsl, var(--bg) 50%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); z-index:5}
+    nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    nav a{padding:12px 8px}
+    h1,h2{ text-align:center; color: var(--accent) }
+    h2{ text-align:center; color: var(--accent) }
+    .muted{color:#fff}
+    .kpis{display:flex; gap:14px; flex-wrap:wrap; margin-top:8px}
+    .kpi{font-size:12px; border:1px solid var(--line); padding:6px 10px; border-radius:999px}
+    .tag{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--line); margin:0 8px 8px 0}
+    .footer{font-size:14px; color:var(--muted); padding:32px 0}
+    
+/* unify buttons to large red style */
+.btn{ background:var(--accent); color:#fff; border:none; padding:.9rem 1.4rem; border-radius:18px; display:inline-block; font-weight:600; box-shadow:0 2px 0 rgba(0,0,0,.2)  color:#fff !important; font-size:1rem; }
+.btn:hover, .btn:focus{ background:#b30520; color:#fff; text-decoration:none }
+
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  .viz-embed{width:100%; aspect-ratio:4/3; border:1px solid var(--line); border-radius:12px}
+.one-col{grid-template-columns:1fr}
+#tableau .card{padding:24px}
+#tableau .viz-embed{width:100%; aspect-ratio:4/3; border:1px solid var(--line); border-radius:12px}
+.no-bullets{list-style:none; padding-left:0; margin:0}
+.no-bullets li{margin:6px 0}
+.stack{display:grid; gap:16px}
+.article-meta{color:#fff}
+.subhead{font-size:1.1rem; font-weight:600; color:var(--muted-fg); margin:24px 0 8px}
+#experience .stack{gap:14px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid var(--line); border-radius:999px; background:rgba(12,35,75,.05)}
+.chip .date{font-weight:600; color:var(--muted-fg)}
+#resume object.pdf-preview{width:100%; height:720px; border:1px solid var(--line); border-radius:12px}
+.cta-row{display:flex; flex-wrap:wrap; gap:10px; margin:12px 0}
+.tech-tags{margin-top:8px}
+.pdf-viewer{width:100%; height:740px; border:1px solid var(--line); border-radius:12px; margin-top:10px}
+@media print{
+  body{background:#fff; color:#000}
+  header, nav, #contact{display:none !important}
+  .card{box-shadow:none; border:1px solid #000; background:#fff}
+  a{color:#000; text-decoration:underline}
+  
+/* unify buttons to large red style */
+.btn{ background:var(--accent); color:#fff; border:none; padding:.9rem 1.4rem; border-radius:18px; display:inline-block; font-weight:600; box-shadow:0 2px 0 rgba(0,0,0,.2) }
+.btn:hover, .btn:focus{ background:#b30520; color:#fff; text-decoration:none }
+
+
+
+.card h3 a{ color: var(--accent); }
+/* alignment reset: left everywhere except section headers */
+section p, section ul, section ol, section li, section figcaption, .tags, .article-meta{ text-align:left }
+.card h3, h1, .subhead{ text-align:left }
+h2{ text-align:center; color: var(--accent) }
+
+
+/* center static project images */
+#projects img{ display:block; margin-left:auto; margin-right:auto }
+
+
+/* more breathing room below viz embeds */
+#tableau .viz-embed{ margin-bottom:16px }
+
+
+/* uniform link-as-button styling in main content */
+main a{display:inline-block;background:var(--accent);color:#fff;padding:.7rem 1.2rem;border-radius:18px;
+  text-decoration:none;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+main a:hover, main a:focus{background:#b30520;color:#fff}
+
+/* exclude header and sticky subnav from button treatment */
+header nav a, #subnav a{background:transparent!important;color:var(--accent)!important;padding:0!important;box-shadow:none!important;border-radius:0!important;text-decoration:none}
+header nav a:hover, #subnav a:hover{text-decoration:underline}
+
+/* Contact section: white, non-button links */
+#contact a{background:transparent!important;color:#fff!important;padding:0!important;box-shadow:none!important;text-decoration:underline}
+
+/* h1 red for name */
+h1{ color: var(--accent) } 
+
+/* final overrides: ensure button text is always visible */
+main a.btn, main .btn{ color:#fff !important; line-height:1.2; font-weight:700; }
+main a.btn *, main .btn *{ color:inherit !important }
+
+/* reinforce header visuals */
+h1{ color: var(--accent) !important }
+h2{ text-align:center; color: var(--accent) }
+
+/* Center Tableau subtitle and card content */
+#tableau p{ text-align:center }
+#tableau .card h3, #tableau .card p, #tableau .article-meta{ text-align:center }
+#projects .card h3, #projects .card p, #projects .article-meta{ text-align:center }
+
+
+/* Contact section: white links, no pill buttons */
+#contact a{ background:transparent; color:#fff; text-decoration:underline; padding:0; box-shadow:none }
+
+.card + #portfolio-links{ margin-top:12px }
+.link-plain{background:transparent!important;color:var(--accent)!important;
+padding:0!important;box-shadow:none!important;border-radius:0!important;text-decoration:underline!important}
+
+#contact p{ text-align:center }
+#contact a{ background:transparent; color:#fff; text-decoration:underline; padding:0; box-shadow:none }
+
+
+/* scoped centering for requested areas */
+#tableau > p{ text-align:center }
+#tableau .aux-links{ text-align:center }
+#tableau .card h3, #tableau .card p, #tableau .article-meta{ text-align:center !important }
+#projects .card h3, #projects .card p, #projects .article-meta{ text-align:center !important }
+
+
+/* scoped centering for Tableau subtitle + link and all project/viz titles + blurbs */
+#tableau p{ text-align:center !important }
+#tableau .aux-links{ text-align:center !important }
+#projects .aux-links{ text-align:center !important }
+#projects .card h3, #projects .card p{ text-align:center !important }
+#tableau .card h3, #tableau .card p{ text-align:center !important }
+
+
+/* final scoped centering */
+#projects h3, #projects p{ text-align:center !important }
+#tableau h3, #tableau p{ text-align:center !important }
+
+
+/* center footer nav and copyright */
+footer nav, footer p, footer .legal, footer { text-align:center !important }
+footer nav a{ display:inline-block }
+
+
+/* center the bottom subnav */
+#subnav{ display:flex; justify-content:center; gap:24px; flex-wrap:wrap; text-align:center }
+#subnav a{ display:inline-block }
+
+
+/* robust footer nav centering */
+footer nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem }
+footer nav ul { display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem; margin:0; padding:0; list-style:none }
+footer nav li { list-style:none }
+footer { text-align:center }
+
+footer p{ text-align:center }
+footer{ text-align:center }
+footer{ text-align:center }
+footer{ text-align:center }
+footer{ text-align:center }
+footer{ text-align:center }
+.viz-tip{font-size:.95rem; opacity:.95; color:#fff}
+h2{ text-align:center; color: var(--accent) }
+</style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Christian Farlin",
+  "description": "MIS graduate student and data analyst with Python, SQL/MySQL, AWS, and econometrics experience.",
+  "url": "https://yourname.github.io/",
+  "sameAs": [
+    "https://www.linkedin.com/in/christianjfarlin",
+    "https://github.com/karate-cj/Honors-Thesis",
+    "https://public.tableau.com/app/profile/christian2418/vizzes"
+  ]
+}
+</script>
+
+
+  <link rel="icon" href="images/icon-512.png" sizes="192x192">
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <nav aria-label="Primary">
+    <div class="wrap">
+      <strong aria-label="Site title">Christian Farlin</strong>
+      <div>
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#tableau">Tableau</a><a href="#publications">Publications</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#volunteering">Volunteering</a><a href="#honors">Honors</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="wrap" role="banner">
+    <div class="grid cols-2">
+      <section id="about" class="card" aria-label="About" aria-labelledby="intro">
+        <h1 id="intro">Christian Farlin</h1>
+        <p class="muted">MIS master’s student · Data analysis, econometrics, AWS, SQL/MySQL</p>
+        <p>Data analyst and MIS master's student at the University of Arizona. Graduated <em>summa cum laude</em> with a B.S.B.A. in Business Economics and MIS, with a minor in Government &amp; Public Policy. I apply data, technology, and economic insight to solve operational problems and support decision-making across business, finance, and policy.</p><p>Built AWS-backed solutions (CloudWatch, VPC, Lightsail, S3, Lambda); designed MySQL databases with stored procedures and ERD optimization; and delivered interactive dashboards in Tableau and Excel. Hands-on with SQL/MySQL for cleaning, modeling, and reporting, with a disciplined focus on data integrity.</p><p>Research: an honors thesis modeling U.S. GDP growth (1940–2022) that found statistically significant effects for presidential party; and a network analysis of YouTube comment discourse (2016 vs. 2020) using Gephi and Python. As a GTA and preceptor I graded 500+ assignments and ran office hours, sharpening communication and technical feedback.</p>
+        <div class="kpis" aria-label="Highlights">
+          <span class="kpi">Python • SQL/MySQL</span>
+          <span class="kpi">AWS</span>
+          <span class="kpi">Tableau • Excel</span>
+          <span class="kpi">Teaching & Mentoring</span>
+        </div>
+        <p style="margin-top:14px">
+          
+          
+        </p>
+
+    </section>
+      <aside class="card" aria-label="Portrait">
+        <img loading="lazy" src="images/portrait.jpg" fetchpriority="high" decoding="async" width="1362" height="2048" alt="Portrait of Christian Farlin in a dark suit and red tie"> 
+      </aside>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="grid one-col">
+        
+    <article class="card" aria-labelledby="honorsthesis:partisans-title">
+      <a href="images/thesis.png" target="_blank" rel="noopener"><img decoding="async" src="images/thesis_thumb.jpg" srcset="images/thesis.png 2x" alt="Line chart and regression output representing GDP growth models" loading="lazy"  width="1813" height="911"></a>
+      <h3 id="honorsthesis:partisans-title" style="text-align:center">Honors Thesis: Partisanship and U.S. GDP Growth (1940–2022)</h3>
+      <p style="text-align:center">Built four regression models with controls for inflation, unemployment, market indicators, and budget status to test whether partisan control affects real GDP growth. Only the Presidency variable showed statistical significance; future work planned with lags and 2SLS.</p>
+      <p style="text-align:center"><span class="tag">Econometrics</span><span class="tag">Regression</span><span class="tag">Python</span></p>
+    
+  <p class="aux-links" style="text-align:center">GitHub link: <a class="link-plain" href="https://github.com/karate-cj/Honors-Thesis/tree/main" target="_blank" rel="noopener">https://github.com/karate-cj/Honors-Thesis/tree/main</a></p>
+</article><article class="card" aria-labelledby="pol424:youtubediscour-title">
+      <a href="images/pol424.png" target="_blank" rel="noopener"><img decoding="async" src="images/pol424_thumb.jpg" srcset="images/pol424.png 2x" alt="Network graph visualization from Gephi with clustered nodes" loading="lazy"  width="1024" height="768"></a>
+      <h3 id="pol424:youtubediscour-title" style="text-align:center">POL 424: YouTube Discourse &amp; Polarization (2016→2020)</h3>
+      <p style="text-align:center">Collected video/comment networks with YouTube Data Tools; computed metrics in Colab; visualized with Gephi; summarized shifts in sentiment, emotion, and hate-speech markers.</p>
+      <p style="text-align:center"><span class="tag">Network Analysis</span><span class="tag">Gephi</span><span class="tag">Python</span></p>
+    </article>
+    
+
+    <article class="card" aria-labelledby="mis331:mysqlgasstati-title">
+      <a href="images/mysql-gas.png" target="_blank" rel="noopener"><img decoding="async" src="images/mysql-gas_thumb.jpg" srcset="images/mysql-gas.png 2x" alt="ERD diagram of a retail gas station database in Lucidchart" loading="lazy"  width="7195" height="3823"></a>
+      <h3 id="mis331:mysqlgasstati-title" style="text-align:center">MIS 331: MySQL Gas Station Database</h3>
+      <p style="text-align:center">Designed a scalable MySQL schema with stored procedures and functions for a multi-station retailer. Produced a color‑coded ERD and deployment scripts.</p>
+      <p style="text-align:center"><span class="tag">MySQL</span><span class="tag">ERD</span><span class="tag">Stored Procedures</span></p>
+    </article></div>
+    
+    
+    <section id="tableau" class="card" aria-label="
+      <h2 id="tableau-heading"><h2 id="tableau-heading">Tableau Projects</h2>
+      <p class="muted" style="text-align:center; text-align:center">Selected dashboards and visuals. All vizzes are hosted on Tableau Public.</p>
+      <p class="viz-tip" style="text-align:center">Tips: scroll inside each viz to explore and use filters and tooltips. Full‑screen versions of these vizzes (and other vizzes) can be accessed via the Tableau link below.</p>
+
+      <div class="aux-links" style="text-align:center"><p style="text-align:center">Tableau link: <a class="link-plain" href="https://public.tableau.com/app/profile/christian2418/vizzes" target="_blank" rel="noopener">https://public.tableau.com/app/profile/christian2418/vizzes</a></p></div>
+<div class="grid one-col">
+        <article class="card" aria-labelledby="tbl-1-title">
+          <h3 id="tbl-1-title" style="text-align:center">Profitability of Existing Users</h3>
+          <figure>
+            <iframe
+              class="viz-embed"
+              title="Interactive Tableau viz: Profitability of Existing Users"
+              src="https://public.tableau.com/views/ChristianFarlinMyDukaanAnalysisMIS304/ProfitabilityofExistingUsers?:showVizHome=no&:embed=true"
+              loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            <figcaption class="muted"></figcaption>
+          </figure>
+<p class="muted" style="text-align:center">Analyzes purchase frequency, basket size, and cohort revenue to show which existing user segments drive profitability over time.</p>
+        </article>
+        <article class="card" aria-labelledby="tbl-3-title">
+          <h3 id="tbl-3-title" style="text-align:center">Exploration of State School Salaries</h3>
+          <figure>
+            <iframe
+              class="viz-embed"
+              title="Interactive Tableau viz: Exploration of State School Salaries"
+              src="https://public.tableau.com/views/FarlinExplorationofStateSchoolSalaries/Dashboard1?:showVizHome=no&:embed=true"
+              loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            <figcaption class="muted"></figcaption>
+          </figure>
+<p class="muted" style="text-align:center">Explores compensation across roles and states, comparing pay by position, institution, and geography with filters and distributions.</p>
+        </article>
+        <article class="card" aria-labelledby="tbl-2-title">
+          <h3 id="tbl-2-title" style="text-align:center">ClubCorp College Football Profitability Analysis</h3>
+          <figure>
+            <iframe
+              class="viz-embed"
+              title="Interactive Tableau viz: ClubCorp College Football Profitability Analysis"
+              src="https://public.tableau.com/views/FarlinClubCorpCollegeFootballProfitabilityAnalysisBNAD277FinalProject/ClubCorpCollegeFootballProfitabilityAnalysis?:showVizHome=no&:embed=true"
+              loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            <figcaption class="muted"></figcaption>
+          </figure>
+<p class="muted" style="text-align:center">Benchmarks program revenues and expenses by conference, highlighting margins, trends, and outliers across Division I teams.</p>
+        </article>
+        <article class="card" aria-labelledby="tbl-4-title">
+          <h3 id="tbl-4-title" style="text-align:center">Effect of Rating on Price for Different Wine Types</h3>
+          <figure>
+            <iframe
+              class="viz-embed"
+              title="Interactive Tableau viz: Effect of Rating on Price for Different Wine Types"
+              src="https://public.tableau.com/views/EffectofRatingonPriceforDifferentWineTypes_16701570467850/Dashboard1?:showVizHome=no&:embed=true"
+              loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+            <figcaption class="muted"></figcaption>
+          </figure>
+<p class="muted" style="text-align:center">Examines how critic ratings relate to bottle price across wine types with interactive filters and trend lines.</p>
+        </article>
+      </div></section>
+<section id="publications" class="card" aria-labelledby="publications-heading" aria-label="Publications">
+      <h2 id="publications-heading">Publications</h2>
+      <div class="grid cols-2h">
+        <article class="card">
+          <h3>Honors Thesis</h3>
+          <p class="muted">Analyzing the Health of the U.S. Economy (1940–2022): Partisan Makeup and GDP Growth.</p>
+          <p><a class="btn download" href="documents/Honors_Thesis.pdf" target="_blank" rel="noopener">Open PDF</a></p>
+        </article>
+        <article class="card">
+          <h3>POL 424 Final Paper</h3>
+          <p class="muted">Hate, Sentiment, and Emotion Metrics vs. Political Polarization (2016 → 2020).</p>
+          <p><a class="btn" href="documents/PoliSci_Paper.pdf" target="_blank" rel="noopener">Open PDF</a></p>
+        </article>
+      </div>
+    </section>
+
+
+
+
+    
+    
+    <section id="experience" class="card" aria-label="Experience" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+
+      <h3 class="subhead">Academic Teaching</h3>
+      <div class="stack">
+        <article class="card" aria-labelledby="exp-gta">
+          <h3 id="exp-gta">Graduate Teaching Assistant — University of Arizona, Eller College of Management</h3>
+          <p class="article-meta">Aug 2025 – Present · Tucson, AZ · On-site</p>
+          <ul class="no-bullets">
+            <li>Manage D2L, create student groups, and reconfigure assignments for integration.</li>
+            <li>Grade Python/Pandas programming assignments and projects with consistency.</li>
+            <li>Hold weekly office hours; coordinate with undergraduate preceptors.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-mis301">
+          <h3 id="exp-mis301">Preceptor — MIS 301: Data Structures and Algorithms (University of Arizona)</h3>
+          <p class="article-meta">Jan 2025 – May 2025 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Graded 7 group assignments across 15 submissions each; maintained fair, timely evaluation.</li>
+            <li>Hosted weekly office hours; clarified complex technical concepts.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-mgmt402">
+          <h3 id="exp-mgmt402">Preceptor — MGMT 402: Integrating Business Fundamentals with Ethics and Law</h3>
+          <p class="article-meta">Jan 2025 – May 2025 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Evaluated ~75 submissions per week across 16 assignments plus extra credit.</li>
+            <li>Delivered feedback on business ethics concepts; ensured grading consistency.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-bnad302">
+          <h3 id="exp-bnad302">Preceptor — BNAD 302: Human Side of Organizations</h3>
+          <p class="article-meta">Aug 2023 – Dec 2024 · Remote</p>
+          <ul class="no-bullets">
+            <li>Graded 4 memo assignments with 22 submissions each; emphasized fairness and accuracy.</li>
+            <li>Provided feedback to deepen understanding of organizational behavior.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-bnan276">
+          <h3 id="exp-bnan276">Data Analyst Preceptor — BNAD/BNAN 276: Statistical Inference in Management</h3>
+          <p class="article-meta">Jan 2023 – May 2023 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Supported students via Zoom/email across a 16‑week course.</li>
+            <li>Clarified inference techniques and reinforced key methodologies.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-mis111">
+          <h3 id="exp-mis111">Preceptor — MIS 111 & MIS 112</h3>
+          <p class="article-meta">Jan 2022 – May 2022 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Graded hundreds of submissions across 6 Excel projects and essays.</li>
+            <li>Delivered constructive feedback to improve Excel and data interpretation skills.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-geos212">
+          <h3 id="exp-geos212">Preceptor — GEOS 212: Introduction to Oceanography</h3>
+          <p class="article-meta">Aug 2021 – Dec 2021 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Led 15 weekly office hours to support student understanding and success.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="subhead">Leadership & Events</h3>
+      <div class="stack">
+        <article class="card" aria-labelledby="exp-ethics-forum">
+          <h3 id="exp-ethics-forum">Discussion Moderator — Eller High School Ethics Forum</h3>
+          <p class="article-meta">Mar 2023 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Moderated discussions with 200+ students on AI and academic integrity.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-bcom-panel">
+          <h3 id="exp-bcom-panel">Panel Assistant — BCOM 314 Professor Candidate Panel</h3>
+          <p class="article-meta">Mar 2023 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Supported evaluation of two professor candidates; provided structured student feedback.</li>
+          </ul>
+        </article>
+
+        <article class="card" aria-labelledby="exp-elite">
+          <h3 id="exp-elite">Eller E.L.I.T.E. Member</h3>
+          <p class="article-meta">Aug 2021 – May 2022 · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Collaborated to raise $5,397.28 for the Steele Children’s Research Center during the 4Ps Challenge.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="subhead">Other Professional Experience</h3>
+      <div class="stack">
+        <article class="card" aria-labelledby="exp-martial">
+          <h3 id="exp-martial">Martial Arts Assistant Instructor — United Studios of Self Defense</h3>
+          <p class="article-meta">Jun 2014 – Aug 2018 · Carlsbad, CA</p>
+          <ul class="no-bullets">
+            <li>Taught techniques to younger and lower‑ranked students; emphasized discipline and focus.</li>
+            <li>Mentored students during group classes; contributed to a positive learning environment.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+
+
+    <section id="skills" class="card" aria-label="Skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <div class="grid">
+        <article class="card">
+          <h3 class="muted">Programming & Data</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">R</span>
+            <span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">Plotly</span>
+            <span class="tag">Google Colab</span><span class="tag">PyCharm</span><span class="tag">RStudio</span><span class="tag">IDLE</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Databases & Data Platforms</h3>
+          <div class="tags">
+            <span class="tag">MySQL</span><span class="tag">Microsoft Access</span><span class="tag">DynamoDB</span>
+            <span class="tag">Data Integrity</span><span class="tag">Data Validation</span><span class="tag">Data Collection</span><span class="tag">Data Reporting</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Cloud & Infrastructure</h3>
+          <div class="tags">
+            <span class="tag">AWS S3</span><span class="tag">AWS Lambda</span><span class="tag">AWS VPC</span>
+            <span class="tag">EC2</span><span class="tag">IAM</span><span class="tag">CloudWatch</span><span class="tag">Lightsail</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Visualization & Design</h3>
+          <div class="tags">
+            <span class="tag">Tableau</span><span class="tag">Tableau Public</span><span class="tag">Gephi</span>
+            <span class="tag">Excel</span><span class="tag">Lucidchart</span><span class="tag">Canva</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Web & CMS</h3>
+          <div class="tags">
+            <span class="tag">WordPress</span><span class="tag">Weebly</span><span class="tag">Drupal</span><span class="tag">Dreamweaver</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Networking, Systems & Security</h3>
+          <div class="tags">
+            <span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">Wireshark</span>
+            <span class="tag">Nmap</span><span class="tag">Tor</span><span class="tag">Tracert</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Methods & Analysis</h3>
+          <div class="tags">
+            <span class="tag">Econometrics</span><span class="tag">Regression Modeling</span><span class="tag">Political Economy</span>
+            <span class="tag">Data Analysis</span><span class="tag">Data Visualization</span><span class="tag">Margin Analysis</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3 class="muted">Teaching & Leadership</h3>
+          <div class="tags">
+            <span class="tag">Instructional Support</span><span class="tag">Precepting</span><span class="tag">Leadership</span><span class="tag">Organization Skills</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="volunteering" class="card" aria-labelledby="vol-heading">
+      <h2 id="vol-heading">Volunteering & Leadership</h2>
+      <ul class="no-bullets">
+        <li>
+          <p><strong>Assistant · High School Ethics Forum</strong> <span class="article-meta">— University of Arizona · Mar 3, 2023</span></p>
+          <p>Assisted the Center for Leadership Ethics with setup, Socratic discussions, and cleanup.</p>
+        </li>
+<li>
+          <p><strong>Panel Member · BCOM 314 Professor Candidate Interviews</strong> <span class="article-meta">— University of Arizona · Mar 2023</span></p>
+          <p>Provided student feedback alongside faculty on two teaching candidates.</p>
+        </li>
+<li>
+          <p><strong>Attendee · Executive Ethics Symposium</strong> <span class="article-meta">— Eller College of Management · Aug 25, 2023</span></p>
+          <p>Explored AI’s implications for academic integrity and networked with college leadership.</p>
+        </li>
+<li>
+          <p><strong>Attendee · Eller Ethics Symposium</strong> <span class="article-meta">— Eller College of Management · Sep 6, 2024</span></p>
+          <p>Engaged in discussions on ESG ethics across industries.</p>
+        </li>
+<li>
+          <p><strong>Honored Attendee · Distinguished Scholars Luncheon</strong> <span class="article-meta">— University of Arizona · Nov 9, 2023</span></p>
+          <p>Recognized among scholarship recipients; networked with peers and faculty.</p>
+        </li>
+      </ul>
+    </section>
+
+
+    
+    <section id="education" class="card" aria-label="Education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <div class="stack">
+        <article class="card" aria-labelledby="edu-ms-title">
+          <h3 id="edu-ms-title">University of Arizona — M.S. in Management Information Systems</h3>
+          <p class="article-meta">2025–Present · Eller College of Management · Tucson, AZ</p>
+          <ul class="no-bullets">
+            <li>Graduate Teaching Assistant (Python/Pandas) supporting coursework, grading, and office hours.</li>
+            <li>Focus: data analytics, SQL/MySQL, Python, cloud services (AWS), business intelligence.</li>
+          </ul>
+        </article>
+        <article class="card" aria-labelledby="edu-bs-title">
+          <h3 id="edu-bs-title">University of Arizona — B.S.B.A. Business Economics & MIS</h3>
+          <p class="article-meta">2021–2025 · Summa Cum Laude · Minor: Government & Public Policy</p>
+          <ul class="no-bullets">
+            <li>W.A. Franke Honors College; Honors Thesis on partisan control and U.S. GDP growth (1940–2022).</li>
+            <li>Technical work across econometrics, network analysis, SQL/MySQL, Tableau, and Python.</li>
+          </ul>
+
+          <div class="tags" style="margin-top:8px" aria-label="Relevant Coursework">
+            <span class="tag">Econometrics</span>
+            <span class="tag">Data Structures &amp; Algorithms (MIS 301)</span>
+            <span class="tag">Database Design (MIS 331)</span>
+            <span class="tag">Statistical Inference (BNAD/BNAN 276)</span>
+            <span class="tag">Machine Learning (MIS 304)</span>
+            <span class="tag">Business Ethics &amp; Law (MGMT 402)</span>
+          </div>
+
+        </article>
+      </div>
+    </section>
+    
+
+
+    <section id="honors" class="card" aria-label="Honors & Awards" aria-labelledby="honors-heading">
+      <h2 id="honors-heading">Honors & Awards</h2>
+      <ul class="no-bullets">
+        <li>Highest Academic Distinction — Eller College of Management · 2023–2024</li>
+<li>Highest Academic Distinction — Eller College of Management · 2022–2023</li>
+<li>Highest Academic Distinction — University of Arizona · 2021–2022</li>
+<li>Gerald J. Swanson Endowed Scholarship — Undergraduate Excellence in Economics · 2023–2024</li>
+<li>William &amp; Florence Schmidt Endowed Scholarship — 2023–2024</li>
+<li>John Drabicki Scholarship — 2023–2024</li>
+<li>Dean’s List with Distinction — Multiple semesters 2021–2025</li>
+<li>First Degree Black Belt · Kempo Karate — United Studios of Self Defense · 2018</li>
+      
+<li>Dean’s List (all 8 academic semesters, 2021–2025)</li>
+
+<li>Highest Academic Distinction (all 4 academic years, 2021–2025)</li>
+
+<li>French — Seal of Biliteracy (2021)</li>
+
+<li>Summa Cum Laude, B.S.B.A. (2025)</li>
+</ul>
+    </section>
+<section id="resume" class="card" aria-label="Resume" aria-labelledby="resume-heading">
+      <h2 id="resume-heading">Resume</h2>
+      
+      <object class="pdf-viewer" data="documents/Christian_Farlin_Resume.pdf" type="application/pdf" aria-label="Resume PDF">
+        <p>Your browser can\'t display PDFs. <a href="documents/Christian_Farlin_Resume.pdf" target="_blank" rel="noopener">Open the resume</a> instead.</p>
+      </object>
+      <p><a class="btn download" href="documents/Christian_Farlin_Resume.pdf" target="_blank" rel="noopener">Download Resume (PDF)</a></p>
+
+    </section>
+
+
+    
+    <section id="contact" class="card" aria-labelledby="contact-heading" aria-label="Contact">
+      <h2 id="contact-heading">Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:cjfarlin@gmail.com">cjfarlin@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christianjfarlin" target="_blank" rel="noopener">linkedin.com/in/christianjfarlin</a></p>
+    
+      <ul>
+        
+      </ul>
+      <p class="contact-inline"><strong>GitHub:</strong> <a href="https://github.com/karate-cj/Honors-Thesis">github.com/karate-cj/Honors-Thesis</a></p>
+      <p class="contact-inline"><strong>Tableau:</strong> <a href="https://public.tableau.com/app/profile/christian2418/vizzes">public.tableau.com/app/profile/christian2418/vizzes</a></p>
+    </section>
+
+</main>
+<footer class="wrap footer" role="contentinfo">
+      <p class="legal">© 2025 Christian Farlin. Built as a single HTML file with AI assistance.</p>
+</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
