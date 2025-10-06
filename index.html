@@ -200,6 +200,31 @@ a.btn, a.btn:visited, a.btn:hover, a.btn:active, a.btn:focus { color: #fff !impo
 /* keep regular links Arizona red without touching buttons */
 a:not(.btn), a:not(.btn):visited { color: var(--accent); }
 
+/* Regular links stay accent */
+a:not(.btn),
+a:not(.btn):visited {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Buttons (anchors styled as buttons) keep white text in every state */
+a.btn,
+a.btn:link,
+a.btn:visited,
+a.btn:hover,
+a.btn:active,
+a.btn:focus {
+  color: #fff !important;
+}
+
+/* If you also use real <button class="btn">, keep parity */
+button.btn,
+button.btn:hover,
+button.btn:active,
+button.btn:focus {
+  color: #fff;
+}
+
 </style>
 
   <!-- Structured Data -->
