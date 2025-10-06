@@ -195,6 +195,11 @@ button.btn {
 }
 a.btn:hover, button.btn:hover { filter: brightness(1.05); }
 
+/* keep button labels readable after click */
+a.btn, a.btn:visited, a.btn:hover, a.btn:active, a.btn:focus { color: #fff !important; }
+/* keep regular links Arizona red without touching buttons */
+a:not(.btn), a:not(.btn):visited { color: var(--accent); }
+
 </style>
 
   <!-- Structured Data -->
