@@ -181,6 +181,20 @@ footer{ text-align:center }
 footer{ text-align:center }
 .viz-tip{font-size:.95rem; opacity:.95; color:#fff}
 h2{ text-align:center; color: var(--accent) }
+
+/* --- Button fix: show text on red buttons --- */
+a.btn, a.btn:link, a.btn:visited,
+button.btn {
+  background: var(--accent);
+  color: var(--text) !important;     /* force white text */
+  border-radius: 16px;
+  padding: 0.9rem 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+a.btn:hover, button.btn:hover { filter: brightness(1.05); }
+
 </style>
 
   <!-- Structured Data -->
